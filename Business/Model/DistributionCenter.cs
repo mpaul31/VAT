@@ -12,6 +12,11 @@ namespace VAT.Business.Model
             this.branches = new List<Branch>();
         }
 
+        protected override bool CanTransferTo(Vehicle vehicle)
+        {
+            return vehicle is Semi;
+        }
+
         public IReadOnlyCollection<Branch> Branches
         {
             get { return new ReadOnlyCollection<Branch>(this.branches); }

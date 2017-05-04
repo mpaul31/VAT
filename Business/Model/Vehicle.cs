@@ -38,6 +38,8 @@ namespace VAT.Business.Model
                 if (value == null) throw new ArgumentNullException();
 
                 // the following validation was choosen over regex for readability purposes. this could easily be refactored to make use of regex.
+                // another option would be to externalize the validation using an abstraction such as IVinValidator and have the validation take place
+                // within an application service or could also be passed in via the constructor.
                 //
                 bool valid = value.Length == 24
                     && value.Count(char.IsLetter) >= 8
