@@ -30,7 +30,7 @@ namespace VAT.Business.Model
 
             if (vehicle.Current == null) throw new VehicleTransferException("Vehicle must have a location set before transfer can take place.");
 
-            if (CanTransferTo(vehicle) == false) throw new VehicleTransferException("....");
+            if (CanTransferTo(vehicle) == false) throw new VehicleTransferException("Vehicle is unable to be transferred.");
 
             vehicle.Current = this;
 
