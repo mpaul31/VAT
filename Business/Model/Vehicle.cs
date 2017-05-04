@@ -62,18 +62,5 @@ namespace VAT.Business.Model
             get;
             private set;
         }
-
-        public void Transfer(Location destination)
-        {
-            if (this.Current == destination) return;
-
-            if (this.Status != VehicleStatus.StandBy) throw new VehicleTransferException("Vehicle must be in stand-by in order to transfer.");
-
-            if (this.CanTransferTo(destination) == false) throw new VehicleTransferException("Unable to transfer vehicle at this time.");
-
-            this.Current = destination;
-        }
-
-        protected abstract bool CanTransferTo(Location destination);
     }
 }
